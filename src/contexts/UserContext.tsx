@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 interface UserContextType {
     nome: string;
@@ -11,12 +11,11 @@ export const UserContext = createContext<UserContextType>({
 })
 
 interface UserProviderProps {
-    children: ReactNode
+    children: ReactNode;
 }
 
 function UserProvider({ children }: UserProviderProps) {
     const [nome, setNome] = useState('');
-
     return (
         <UserContext.Provider value={{nome, setNome}}>
             {children}
